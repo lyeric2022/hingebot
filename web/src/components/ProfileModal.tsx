@@ -220,18 +220,18 @@ export default function ProfileModal({ subject, onClose, onLike }: ProfileModalP
           <div className="grid grid-cols-2 gap-x-4 border-b border-gray-100 pb-4 mb-4">
             <DetailItem icon={Briefcase} label="Job" value={profileData.jobTitle} />
             <DetailItem icon={GraduationCap} label="School" value={profileData.school} />
-            <DetailItem icon={Ruler} label="Height" value={formatHeight(profileData.height)} />
+            <DetailItem icon={Ruler} label="Height" value={formatHeight(profileData.height) ?? undefined} />
             <DetailItem icon={MapPin} label="Hometown" value={profileData.hometown} />
           </div>
 
           {/* Lifestyle Details */}
           <div className="grid grid-cols-2 gap-x-4 border-b border-gray-100 pb-4 mb-4">
-            <DetailItem icon={Wine} label="Drinking" value={formatField(profileData.drinking, DRINKING_MAP)} />
-            <DetailItem icon={Cigarette} label="Smoking" value={formatField(profileData.smoking, SMOKING_MAP)} />
-            <DetailItem icon={Church} label="Religion" value={formatField(profileData.religion)} />
-            <DetailItem icon={Users} label="Ethnicity" value={formatField(profileData.ethnicity)} />
-            <DetailItem icon={Baby} label="Children" value={formatField(profileData.children, CHILDREN_MAP)} />
-            <DetailItem icon={Baby} label="Family Plans" value={formatField(profileData.familyPlans, FAMILY_PLANS_MAP)} />
+            <DetailItem icon={Wine} label="Drinking" value={formatField(profileData.drinking, DRINKING_MAP) ?? undefined} />
+            <DetailItem icon={Cigarette} label="Smoking" value={formatField(profileData.smoking, SMOKING_MAP) ?? undefined} />
+            <DetailItem icon={Church} label="Religion" value={formatField(profileData.religion) ?? undefined} />
+            <DetailItem icon={Users} label="Ethnicity" value={formatField(profileData.ethnicity) ?? undefined} />
+            <DetailItem icon={Baby} label="Children" value={formatField(profileData.children, CHILDREN_MAP) ?? undefined} />
+            <DetailItem icon={Baby} label="Family Plans" value={formatField(profileData.familyPlans, FAMILY_PLANS_MAP) ?? undefined} />
           </div>
 
           {/* Prompts */}
