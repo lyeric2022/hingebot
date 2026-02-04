@@ -29,6 +29,18 @@ interface SavedProfilesProps {
   onLike?: (subjectId: string, ratingToken: string) => Promise<boolean>;
 }
 
+// Privacy helpers - mask name and age
+const maskName = (name: string): string => {
+  if (!name) return "?";
+  return name.charAt(0) + "***";
+};
+
+const maskAge = (age: number | string): string => {
+  if (!age) return "?";
+  const ageStr = String(age);
+  return ageStr.charAt(0) + "*";
+};
+
 export default function SavedProfiles({ apiUrl, onLike }: SavedProfilesProps) {
   const [profiles, setProfiles] = useState<SavedProfile[]>([]);
   const [loading, setLoading] = useState(true);
@@ -186,7 +198,7 @@ export default function SavedProfiles({ apiUrl, onLike }: SavedProfilesProps) {
               {/* Info overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 pt-12">
                 <p className="text-white font-semibold">
-                  {profile.firstName}, {profile.age}
+                  {maskName(profile.firstName)}, {maskAge(profile.age)}
                 </p>
                 <p className="text-white/70 text-sm truncate">
                   {profile.location}
@@ -283,7 +295,7 @@ export default function SavedProfiles({ apiUrl, onLike }: SavedProfilesProps) {
             <div className="flex-1 overflow-y-auto p-6">
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  {selectedProfile.firstName}, {selectedProfile.age}
+                  {maskName(selectedProfile.firstName)}, {maskAge(selectedProfile.age)}
                 </h2>
                 {selectedProfile.location && (
                   <p className="text-gray-500 flex items-center gap-1 mt-1">
@@ -370,7 +382,7 @@ export default function SavedProfiles({ apiUrl, onLike }: SavedProfilesProps) {
                   className="mt-4 w-full py-3 gradient-btn text-white rounded-xl font-medium flex items-center justify-center gap-2"
                 >
                   <Heart className="w-5 h-5" />
-                  Like {selectedProfile.firstName}
+                  Like {maskName(selectedProfile.firstName)}
                 </button>
               )}
             </div>
