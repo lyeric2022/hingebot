@@ -16,11 +16,9 @@ A web-based automation tool for Hinge dating app. Browse, filter, and manage pro
 - **Saved Profiles** - Auto-save profiles to local JSON file
 - **Advanced Filters** - Filter by age, height, location, drinking, smoking, religion, etc.
 
-## Screenshots
+## Screenshot
 
-| Grid View | Profile Detail | Filters |
-|-----------|---------------|---------|
-| Browse multiple profiles | Click to see full details | Advanced filtering options |
+![HingeBot Saved Profiles](screenshot.png)
 
 ## Prerequisites
 
